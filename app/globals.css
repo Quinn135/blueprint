@@ -1,107 +1,186 @@
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  /* --background: hsl(240, 5%, 10%);
+  --backgroundLight: hsl(240, 12%, 15%);
+  --backgroundDark: hsl(240, 8%, 7%); */
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: #3255d1;
+  --backgroundLight: #4a6de5;
+  --backgroundDark: #0930a7;
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  /* --foreground: hsl(240, 15%, 93%);
+  --foregroundLight: hsl(240, 15%, 99%);
+  --foregroundDark: hsl(240, 15%, 84%);
+  --foregroundExtraDark: hsl(240, 7%, 40%); */
+  --foreground: #d8e0f8;
+  --foregroundLight: #ecf1ff;
+  --foregroundDark: #9caddf;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
+body {
   margin: 0;
+
+  background: var(--background);
+  background-image: linear-gradient(
+    to bottom right,
+    var(--background),
+    var(--backgroundDark)
+  );
+  color: var(--foreground);
+
+  min-height: 100dvh;
+  overflow: hidden;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
+h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.flexGridRow {
+  display: flex;
+  width: 100%;
+  height: 100dvh;
+
+  flex-grow: 1;
+  flex-direction: row;
+}
+
+.left {
+  background: var(--background);
+
+  flex-grow: 0;
+  border-right: var(--foregroundDark) dashed 1px;
+
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  /* box-shadow: 0 0 0.4rem 0.1rem rgba(0, 0, 0, 0.5); */
+
+  max-height: 100dvh;
+}
+
+.quinncooperstein {
+  height: calc(100dvh - 1rem);
+  padding: 0.25rem;
+  padding-top: 0.75rem;
+
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.right {
+  flex-grow: 1;
+
+  padding: 1rem;
+
+  overflow: scroll;
+}
+
+.socialsContainer {
+  position: relative;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  writing-mode: horizontal-tb;
+  text-orientation: upright;
+
+  justify-content: space-evenly;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  padding-bottom: 0.4rem;
+
+  flex-grow: 1;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: var(--background);
+  padding-top: 1rem;
+
+  --mask: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0,
+      rgba(0, 0, 0, 1) 75%,
+      rgba(0, 0, 0, 0) 95%,
+      rgba(0, 0, 0, 0) 0
     )
-    rgb(var(--background-start-rgb));
+    100% 50% / 100% 100% repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.socials > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.4rem;
+  background: var(--backgroundLight);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.socials > a > img {
+  color: var(--foreground);
+}
+
+.imageDiv {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+
+  max-width: 50rem;
+
+  color: var(--foregroundLight);
+  border: var(--foregroundDark) dashed 1px;
+}
+
+.imageDiv > span {
+  padding: 0.5rem;
+}
+
+.imageDiv > img {
+  width: 100%;
+  height: auto;
+}
+
+.imageTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.a {
+  color: var(--foregroundLight);
+  text-decoration: underline;
+}
+
+.notFound {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+}
+
+.notFoundRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+.notFoundRow > h2 {
+  line-height: 2.5rem;
 }
