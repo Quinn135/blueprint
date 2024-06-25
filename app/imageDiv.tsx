@@ -3,12 +3,12 @@ import Image from "next/image";
 
 export default function ImageDiv({
   src,
-  title,
+  title = "",
   desc,
   alt,
 }: {
   src: StaticImageData;
-  title = "": string;
+  title: string;
   desc: string;
   alt: string;
 }) {
