@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function ImageDiv({
   src,
-  title = "",
   desc,
   alt,
+  title = "",
 }: {
   src: StaticImageData;
   title?: string;
@@ -14,16 +14,9 @@ export default function ImageDiv({
 }) {
   return (
     <div className="imageDiv">
-      <Image
-        src={src}
-        alt={alt}
-        className="image"
-        quality={100}
-        placeholder="blur"
-        blurDataURL=""
-      />
+      <Image src={src} alt={alt} className="image" quality={100} />
       <span>
-        <h3 className="imageTitle">{title}</h3>
+        {title ? <h3 className="imageTitle">{title}</h3> : ""}
         {desc}
       </span>
     </div>

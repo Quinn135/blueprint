@@ -11,8 +11,8 @@ export default function Home() {
       <p>I don't have a cat</p>
       <p>
         If you're actually looking for my pictures they're at{" "}
-        <a href="/the_images" className="a">
-          /the_images
+        <a href="/hellopictures" className="a">
+          /hellopictures
         </a>
       </p>
       <ImageDiv

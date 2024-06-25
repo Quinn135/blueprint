@@ -11,7 +11,7 @@ import grounded from "/public/images/grounded.png";
 import rectrails from "/public/images/rectrails.png";
 import filmend from "/public/images/filmend.png";
 
-export default function theImages() {
+export default function pictures() {
   const images = [
     {
       src: sunsethome,
