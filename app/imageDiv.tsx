@@ -8,7 +8,7 @@ export default function ImageDiv({
   alt,
 }: {
   src: StaticImageData;
-  title: string;
+  title = "": string;
   desc: string;
   alt: string;
 }) {
