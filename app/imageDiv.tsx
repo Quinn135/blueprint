@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ImageDiv({
   src,
-  title,
+  title = "",
   desc,
   alt,
 }: {
